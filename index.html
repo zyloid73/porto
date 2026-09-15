@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rano Andika Putra — Streamer & Web Developer</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Efek Letupan / Membal Khas Neo-Brutalist saat Diklik */
+.brutal-btn, button, a {
+    transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+}
+
+.brutal-btn:active, button:active, a:active {
+    transform: translate(3px, 3px) !important;
+    box-shadow: 1px 1px 0px #000 !important;
+}
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #FBF8EE;
+            color: #121212;
+            transition: background-color 0.3s ease;
+        }
+        
+       /* Dark Mode Variant */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #FFFFFF !important;
+}
+
+/* Pastikan latar belakang section tetap hitam pekat */
+body.dark-mode section,
+body.dark-mode main {
+    background-color: #121212 !important;
+}
+
+/* Card & Tombol Putih berubah jadi Abu-Abu Gelap dengan Border Putih Tegas */
+body.dark-mode .brutal-card,
+body.dark-mode .bg-white {
+    background-color: #1E1E1E !important;
+    color: #FFFFFF !important;
+    border-color: #FFFFFF !important;
+    box-shadow: 4px 4px 0px #FFFFFF !important;
+}/* ==============================================
+       CUSTOM NEO-BRUTALISM HOVER EFFECTS
+    ============================================== */
+    .brutal-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    /* Efek pas kursor diarahkan ke kartu */
+    .brutal-card:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 8px 8px 0px #000000 !important;
+    }
+
+    /* Efek pas tombol diklik/ditekan */
+    .brutal-btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px #000000 !important;
+    }/* ==============================================
+       ESTHETIC NEO-BRUTALISM ACCENTS
+    ============================================== */
+    /* Pattern dot background ala web modern */
+    .brutal-pattern {
+        background-image: radial-gradient(#121212 1px, transparent 1px);
+        background-size: 16px 16px;
+    }
+    body.dark-mode .brutal-pattern {
+        background-image: radial-gradient(#ffffff 1px, transparent 1px);
+    }
+
+    /* Animasi Teks Berjalan (Marquee) */
+    @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+        display: flex;
+        width: 200%;
+        animation: marquee 15s linear infinite;
+    }
+
+/* Biar semua teks judul dan paragraf jelas terbaca putih */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4,
+body.dark-mode p,
+body.dark-mode span:not([class*="bg-"]) {
+    color: #FFFFFF !important;
+}
+
+/* Teks tombol/badge berwarna (HTML5, JS, CSS, dll) tetap HITAM tebal */
+body.dark-mode .skill-badge,
+body.dark-mode [class*="bg-yellow"] *,
+body.dark-mode [class*="bg-green"] *,
+body.dark-mode [class*="bg-blue"] *,
+body.dark-mode [class*="bg-purple"] *,
+body.dark-mode [class*="bg-pink"] *,
+body.dark-mode [class*="bg-red"] * {
+    color: #121212 !important;
+    font-weight: 800 !important;
+}
+
+        /* Style Khas Neo-Brutalism */
+        .brutal-card {
+            border: 3px solid #121212;
+            box-shadow: 5px 5px 0px #121212;
+            transition: all 0.2s ease;
+        }
+        .brutal-card-hover:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px #121212;
+        }
+        .brutal-btn {
+            border: 3px solid #121212;
+            box-shadow: 4px 4px 0px #121212;
+            transition: all 0.15s ease-in-out;
+            cursor: pointer;
+        }
+        .brutal-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #121212;
+        }
+        .brutal-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #121212;
+        }
+
+        /* Animasi Marquee Teks Berjalan */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 22s linear infinite;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FBF8EE; border-left: 3px solid #121212; }
+        ::-webkit-scrollbar-thumb { background: #FF5757; border: 2px solid #121212; border-radius: 4px; }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden">
+
+    <!-- STICKY NAVBAR -->
+    <header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl flex justify-between items-center py-2.5 px-4 bg-[#FBF8EE]/95 backdrop-blur-md rounded-2xl border-3 border-[#121212] shadow-[5px_5px_0px_#121212]">
+        <div class="flex items-center gap-3">
+            <div class="border-2 border-[#121212] bg-white px-3 py-1 rounded-xl font-black text-sm tracking-tight text-[#121212] shadow-[2px_2px_0px_#121212]">
+                Rano<span class="text-blue-600">.DEV</span>
+            </div>
+            <button id="statusBtn" onclick="toggleStatus()" class="hidden sm:flex items-center gap-2 brutal-btn bg-[#7CFF6B] px-3 py-1 rounded-full text-[10px] font-black uppercase text-[#121212]">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+                <span id="statusText">LIVE STREAMING NOW</span>
+            </button>
+        </div>
+
+        <nav class="hidden lg:flex gap-1 border-2 border-[#121212] bg-white p-1 rounded-full text-xs font-bold text-[#121212]">
+            <a href="#about" onclick="playClickSound()" class="px-3.5 py-1.5 rounded-full hover:bg-yellow-300 transition">About</a>
+            <a href="#skills" onclick="playClickSound()" class="px-3.5 py-1.5 rounded-full hover:bg-yellow-300 transition">Skills</a>
+            <a href="#setup" onclick="playClickSound()" class="px-3.5 py-1.5 rounded-full hover:bg-yellow-300 transition">Setup</a>
+            <a href="#gaming" onclick="playClickSound()" class="px-3.5 py-1.5 rounded-full hover:bg-yellow-300 transition">Gaming</a>
+            <a href="#works" onclick="playClickSound()" class="px-3.5 py-1.5 rounded-full hover:bg-yellow-300 transition">Works</a>
+            <a href="#faq" onclick="playClickSound()" class="px-3.5 py-1.5 rounded-full hover:bg-yellow-300 transition">FAQ</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+            <button onclick="toggleTheme()" class="brutal-btn bg-[#FFDE59] dark:bg-[#2A2A2A] text-[#121212] dark:text-[#FFDE59] w-10 h-10 rounded-xl flex items-center justify-center border-2 border-[#121212] dark:border-white shadow-[2px_2px_0px_#121212] cursor-pointer">
+    <span id="themeIcon" class="text-lg leading-none select-none">🌙</span>
+</button>
+            <a href="#contact" onclick="playClickSound()" class="brutal-btn bg-[#FFDE59] text-[#121212] px-3.5 py-2 rounded-xl font-extrabold text-xs flex items-center gap-1.5">
+                Let's Talk 💬
+            </a>
+        </div>
+    </header>
+
+    <div class="pt-24 space-y-0">
+
+        <!-- HERO SECTION -->
+        <section id="about" class="bg-[#4383EC] border-b-4 border-[#121212] px-6 py-16 md:py-24 text-white relative overflow-hidden">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7 space-y-6 text-[#121212]" data-aos="fade-right">
+                    <div class="inline-block brutal-card bg-[#FF66C4] text-white px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider">
+                        👋 Halo, Selamat Datang!
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight leading-none">
+                        BUILDING CODE & <br><span class="text-[#FFDE59]">STREAMING CONTENT.</span>
+                    </h1>
+                    <div class="brutal-card bg-white p-6 rounded-2xl text-xs sm:text-sm font-semibold leading-relaxed space-y-3">
+                        <p>Saya tidak sekadar menulis kode; saya membangun ekosistem digital. Menggabungkan estetika visual yang mencolok dan logika sistem yang responsif.</p>
+                        <p>Berbasis di Bengkulu, Indonesia. Fokus menciptakan antarmuka modern, interaktif, dan konten gaming penuh karakter tanpa templat kaku.</p>
+                        <hr class="border-t-2 border-[#121212] my-3">
+                        <div class="flex items-center gap-3">
+                            <img src="foto.rano.jpg.jpg" alt="Rano Andika Putra" class="w-11 h-11 rounded-full border-2 border-[#121212] object-cover">
+                            <div>
+                                <h4 class="font-extrabold text-sm text-[#121212]">Rano Andika Putra</h4>
+                                <p class="text-[11px] text-gray-500 font-bold">Content Creator & Web Developer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <a href="#works" onclick="playClickSound()" class="brutal-btn bg-[#FFDE59] text-[#121212] px-5 py-2.5 rounded-xl font-black text-xs">🔥 Lihat Portofolio</a>
+                        <a href="#setup" onclick="playClickSound()" class="brutal-btn bg-white text-[#121212] px-5 py-2.5 rounded-xl font-black text-xs">🖥️ Battlestation Setup</a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 grid grid-cols-2 gap-4 text-[#121212]" data-aos="fade-left">
+                    <div class="brutal-card bg-[#FFDE59] p-5 rounded-2xl text-center rotate-[-2deg]">
+                        <h3 class="text-3xl font-black">2+</h3>
+                        <p class="text-[10px] font-black uppercase tracking-wider mt-1">Years Experience</p>
+                    </div>
+                    <div class="brutal-card bg-[#A766FF] p-5 rounded-2xl text-center text-white rotate-[2deg]">
+                        <h3 class="text-3xl font-black">15+</h3>
+                        <p class="text-[10px] font-black uppercase tracking-wider mt-1">Projects Done</p>
+                    </div>
+                    <div class="brutal-card bg-white p-5 rounded-2xl text-center rotate-[1deg]">
+                        <h3 class="text-3xl font-black">1440p</h3>
+                        <p class="text-[10px] font-black uppercase tracking-wider mt-1">120FPS Streaming</p>
+                    </div>
+                    <div class="brutal-card bg-[#FF5757] p-5 rounded-2xl text-center text-white rotate-[-3deg]">
+                        <h3 class="text-3xl font-black">100%</h3>
+                        <p class="text-[10px] font-black uppercase tracking-wider mt-1">Passion & Dedication</p>
+                    </div>
+                </div>
+            </div>
+            <!-- SECTION: GAMER & CREATOR VIBES BANNER -->
+<section class="py-8 px-4 max-w-6xl mx-auto">
+    <div class="brutal-card p-6 md:p-8 bg-[#7000FF] text-white rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-[6px_6px_0px_#000] border-4 border-black">
+        <div class="space-y-3 text-center md:text-left">
+            <span class="bg-[#FFDE59] text-[#121212] font-black px-3 py-1 text-xs rounded-md border-2 border-black inline-block uppercase tracking-wider">
+                ⚡ Streamer & Content Creator Mode
+            </span>
+            <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight">
+                Ready to Level Up Your Project?
+            </h2>
+            <p class="font-bold text-sm text-gray-200 max-w-xl">
+                Menggabungkan estetika Neobrutalism dengan performa tinggi. Siap kolaborasi untuk konten gaming, web development, atau video editing!
+            </p>
+        </div>
+        
+        <!-- Ilustrasi / Badge Estetik ala Anime/Gaming -->
+        <div class="relative bg-[#FF5757] border-4 border-black p-4 rounded-xl shadow-[4px_4px_0px_#000] text-center rotate-2 hover:rotate-0 transition-transform">
+            <div class="text-4xl mb-1">🎮🔥</div>
+            <div class="font-black text-black text-sm uppercase">Z Y L O </div>
+            <div class="text-xs font-mono font-bold bg-white text-black px-2 py-0.5 rounded mt-1 border border-black inline-block">
+                Bengkulu Pride 📍
+            </div>
+        </div>
+    </div>
+</section>
+        </section>
+
+        <!-- MARQUEE -->
+        <div class="bg-[#121212] text-white py-3.5 overflow-hidden border-b-4 border-[#121212]">
+            <div class="marquee-track font-black text-xs tracking-widest uppercase gap-8">
+                <span>✦ HTML5 & CSS3</span> <span>✦ TAILWIND CSS</span> <span>✦ JAVASCRIPT</span> <span>✦ OBS STUDIO STREAMING</span> <span>✦ GAMING CONTENT</span> <span>✦ VIDEO EDITING</span> <span>✦ UI/UX DESIGN</span> <span>✦ PC HARDWARE BUILDING</span>
+                <span>✦ HTML5 & CSS3</span> <span>✦ TAILWIND CSS</span> <span>✦ JAVASCRIPT</span> <span>✦ OBS STUDIO STREAMING</span> <span>✦ GAMING CONTENT</span> <span>✦ VIDEO EDITING</span> <span>✦ UI/UX DESIGN</span> <span>✦ PC HARDWARE BUILDING</span>
+            </div>
+        </div>
+
+        <!-- SKILLS -->
+        <section id="skills" class="bg-[#FBF8EE] border-b-4 border-[#121212] py-16 px-6 text-center" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto space-y-6">
+                <span class="brutal-card bg-[#7CFF6B] px-3.5 py-1 rounded-full text-[10px] font-black uppercase text-[#121212]">My Tech Arsenal</span>
+                <h2 class="text-3xl sm:text-4xl font-black tracking-tight">TECH & CREATIVE SKILLS</h2>
+                <div class="flex justify-center gap-2 pt-2 flex-wrap">
+                    <button onclick="filterSkills('all')" class="brutal-btn bg-[#FFDE59] px-3 py-1 rounded-lg text-xs font-black">All</button>
+                    <button onclick="filterSkills('code')" class="brutal-btn bg-white px-3 py-1 rounded-lg text-xs font-black">Coding</button>
+                    <button onclick="filterSkills('media')" class="brutal-btn bg-white px-3 py-1 rounded-lg text-xs font-black">Creative & Streaming</button>
+                </div>
+                <div id="skillsContainer" class="flex flex-wrap justify-center gap-3 pt-4 max-w-3xl mx-auto">
+                    <span class="skill-badge code brutal-btn bg-[#FF914D] px-4 py-2 rounded-xl text-xs font-extrabold rotate-[-2deg]">HTML5</span>
+                    <span class="skill-badge code brutal-btn bg-[#38B6FF] px-4 py-2 rounded-xl text-xs font-extrabold rotate-[2deg]">CSS3</span>
+                    <span class="skill-badge code brutal-btn bg-[#FFDE59] px-4 py-2 rounded-xl text-xs font-extrabold rotate-[-3deg]">JavaScript</span>
+                    <span class="skill-badge code brutal-btn bg-[#5271FF] text-white px-4 py-2 rounded-xl text-xs font-extrabold rotate-[3deg]">Tailwind CSS</span>
+                    <span class="skill-badge media brutal-btn bg-[#7CFF6B] px-4 py-2 rounded-xl text-xs font-extrabold rotate-[2deg]">OBS Studio</span>
+                    <span class="skill-badge media brutal-btn bg-[#FF66C4] px-4 py-2 rounded-xl text-xs font-extrabold rotate-[-2deg]">CapCut Pro</span>
+                    <span class="skill-badge media brutal-btn bg-[#A766FF] text-white px-4 py-2 rounded-xl text-xs font-extrabold rotate-[3deg]">Adobe Premiere</span>
+                    <span class="skill-badge media brutal-btn bg-[#FF5757] text-white px-4 py-2 rounded-xl text-xs font-extrabold rotate-[-1deg]">Figma UI/UX</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SETUP -->
+        <section id="setup" class="bg-[#FF914D] border-b-4 border-[#121212] py-16 px-6" data-aos="fade-up">
+            <div class="max-w-5xl mx-auto space-y-8">
+                <div class="text-center space-y-2">
+                    <span class="brutal-card bg-white px-3.5 py-1 rounded-full text-[10px] font-black uppercase text-[#121212]">Hardware Engine</span>
+                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white">STREAMING & GAMING RIG</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 text-[#121212]">
+                    <div class="brutal-card bg-white p-5 rounded-2xl space-y-2">
+                        <div class="text-2xl">🔌</div>
+                        <h4 class="font-black text-sm">Motherboard</h4>
+                        <p class="text-xs font-extrabold text-blue-600">ASRock B850 Series</p>
+                        <p class="text-[11px] text-gray-600 font-semibold">WiFi Cepat & stabilitas performa gaming tinggi.</p>
+                    </div>
+                    <div class="brutal-card bg-white p-5 rounded-2xl space-y-2">
+                        <div class="text-2xl">⚡</div>
+                        <h4 class="font-black text-sm">Memory (RAM)</h4>
+                        <p class="text-xs font-extrabold text-purple-600">High-Speed DDR RAM</p>
+                        <p class="text-[11px] text-gray-600 font-semibold">Multitasking lancar untuk streaming + render video.</p>
+                    </div>
+                    <div class="brutal-card bg-white p-5 rounded-2xl space-y-2">
+                        <div class="text-2xl">🔊</div>
+                        <h4 class="font-black text-sm">Audio Gear</h4>
+                        <p class="text-xs font-extrabold text-green-600">EDIFIER MR4</p>
+                        <p class="text-[11px] text-gray-600 font-semibold">Audio jernih & ringkas untuk monitoring sound.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GAMING -->
+        <section id="gaming" class="bg-[#A766FF] border-b-4 border-[#121212] py-16 px-6 text-white" data-aos="fade-up">
+            <div class="max-w-5xl mx-auto space-y-8">
+                <div class="text-center space-y-2">
+                    <span class="brutal-card bg-[#FFDE59] text-[#121212] px-3.5 py-1 rounded-full text-[10px] font-black uppercase">Gamer Zone</span>
+                    <h2 class="text-3xl sm:text-4xl font-black tracking-tight">MOST PLAYED GAMES</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 text-[#121212]">
+                    <div class="brutal-card bg-white p-5 rounded-2xl text-center space-y-2">
+                        <div class="text-3xl">🤖</div>
+                        <h3 class="font-black text-base">Roblox</h3>
+                        <p class="text-[11px] text-gray-600 font-bold">Community Stream & Fun Gameplay</p>
+                    </div>
+                    <div class="brutal-card bg-white p-5 rounded-2xl text-center space-y-2">
+                        <div class="text-3xl">🎯</div>
+                        <h3 class="font-black text-base">Valorant</h3>
+                        <p class="text-[11px] text-gray-600 font-bold">Tactical FPS & Ranked Grind</p>
+                    </div>
+                    <div class="brutal-card bg-white p-5 rounded-2xl text-center space-y-2">
+                        <div class="text-3xl">🚗</div>
+                        <h3 class="font-black text-base">GTA V / FiveM</h3>
+                        <p class="text-[11px] text-gray-600 font-bold">Roleplay & Open World Exploration</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKS -->
+        <section id="works" class="bg-[#FFDE59] border-b-4 border-[#121212] py-16 px-6" data-aos="fade-up">
+            <div class="max-w-5xl mx-auto space-y-8">
+                <div>
+                    <h2 class="text-3xl font-black tracking-tight text-[#121212]">SELECTED WORKS.</h2>
+                    <p class="text-xs font-bold text-gray-800">Proyek dan aset kreasi terpilih.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="brutal-card bg-white p-6 rounded-2xl space-y-4 text-[#121212]" data-aos="flip-left">
+                        <div class="flex gap-2">
+                            <span class="bg-purple-200 text-purple-800 px-2.5 py-0.5 rounded-md text-[10px] font-bold">HTML</span>
+                            <span class="bg-blue-200 text-blue-800 px-2.5 py-0.5 rounded-md text-[10px] font-bold">TAILWIND</span>
+                        </div>
+                        <h3 class="text-xl font-black">KeepR Desktop Vault</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed font-semibold">Aplikasi manajemen catatan harian dan data pribadi terlindungi secara lokal.</p>
+                        <button onclick="openModal('KeepR Desktop Vault', 'Aplikasi vaults lokal berbasis Web Tech dengan penyimpanan terenkripsi.')" class="brutal-btn bg-white px-4 py-2 rounded-xl text-xs font-extrabold">Live Preview ↗</button>
+                    </div>
+                    <div class="brutal-card bg-[#121212] text-white p-6 rounded-2xl space-y-4" data-aos="flip-right">
+                        <div class="flex gap-2">
+                            <span class="bg-yellow-400 text-[#121212] px-2.5 py-0.5 rounded-md text-[10px] font-bold">STREAMING</span>
+                        </div>
+                        <h3 class="text-xl font-black">Streaming Overlay Hub</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-semibold">Desain dan aset interaktif untuk live streaming Twitch & YouTube.</p>
+                        <button onclick="openModal('Streaming Overlay Hub', 'Paket grafis interaktif mencakup alerts, chatbox, dan webcam frame.')" class="brutal-btn bg-[#FFDE59] text-[#121212] px-4 py-2 rounded-xl text-xs font-extrabold">View Showcase ↗</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="bg-[#FBF8EE] border-b-4 border-[#121212] py-16 px-6" data-aos="fade-up">
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="text-center space-y-2">
+                    <span class="brutal-card bg-[#FF66C4] text-white px-3.5 py-1 rounded-full text-[10px] font-black uppercase">Got Questions?</span>
+                    <h2 class="text-3xl font-black tracking-tight">FREQUENTLY ASKED QUESTIONS</h2>
+                </div>
+                <div class="space-y-3">
+                    <div class="brutal-card bg-white p-4 rounded-xl cursor-pointer" onclick="toggleFaq(1)">
+                        <div class="flex justify-between items-center font-black text-sm">
+                            <span>Berapa lama pengerjaan proyek website?</span>
+                            <span id="faq-icon-1">+</span>
+                        </div>
+                        <p id="faq-ans-1" class="hidden text-xs text-gray-600 font-semibold mt-2">Pengerjaan bervariasi mulai dari 3 hingga 7 hari tergantung kompleksitas desain dan fitur yang diminta.</p>
+                    </div>
+                    <div class="brutal-card bg-white p-4 rounded-xl cursor-pointer" onclick="toggleFaq(2)">
+                        <div class="flex justify-between items-center font-black text-sm">
+                            <span>Apakah menerima jasa setting OBS / Overlay Streaming?</span>
+                            <span id="faq-icon-2">+</span>
+                        </div>
+                        <p id="faq-ans-2" class="hidden text-xs text-gray-600 font-semibold mt-2">Ya! Saya juga melayani konsultasi & setup overlay interaktif agar tampilan live streaming kamu lebih profesional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="bg-[#121212] text-white py-16 px-6" data-aos="zoom-in">
+            <div class="max-w-3xl mx-auto space-y-8 text-center">
+                <div class="space-y-2">
+                    <h2 class="text-4xl font-black tracking-tight text-[#FFDE59]">LET'S TALK BUSINESS.</h2>
+                    <p class="text-xs text-gray-400 max-w-md mx-auto font-medium">Punya ide proyek menarik atau ingin berkolaborasi? Kirim pesan langsung!</p>
+                </div>
+                <form id="contactForm" onsubmit="handleFormSubmit(event)" class="brutal-card bg-white text-[#121212] p-6 rounded-2xl text-left space-y-4 max-w-xl mx-auto">
+                    <div>
+                        <label class="block text-xs font-extrabold mb-1">Nama Kamu:</label>
+                        <input type="text" required placeholder="Masukkan nama..." class="w-full p-2.5 border-2 border-[#121212] rounded-xl text-xs font-semibold focus:outline-none focus:bg-yellow-50">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-extrabold mb-1">Pesan / Ide Proyek:</label>
+                        <textarea rows="3" required placeholder="Tuliskan pesanmu di sini..." class="w-full p-2.5 border-2 border-[#121212] rounded-xl text-xs font-semibold focus:outline-none focus:bg-yellow-50"></textarea>
+                    </div>
+                    <button type="submit" class="w-full brutal-btn bg-[#FF5757] text-white py-3 rounded-xl font-black text-xs uppercase tracking-wider">🚀 Kirim Pesan Sekarang</button>
+                </form>
+                <div class="flex flex-wrap justify-center gap-3 pt-4">
+                    <button onclick="copyToClipboard('ranoboyben@gmail.com', 'Email')" class="brutal-btn bg-white text-[#121212] px-4 py-2.5 rounded-xl font-bold text-xs">✉️ Copy Email</button>
+                    <button onclick="copyToClipboard('vartosync', 'Discord Tag')" class="brutal-btn bg-[#5271FF] text-white px-4 py-2.5 rounded-xl font-bold text-xs">💬 Copy Discord</button>
+                    <a href="#" onclick="playClickSound()" class="brutal-btn bg-[#38B6FF] text-[#121212] px-4 py-2.5 rounded-xl font-bold text-xs">📱 TikTok</a>
+                </div>
+                <p class="text-[10px] text-gray-500 pt-6">© 2026 Rano Andika Putra. Built with heart.
+             </p>
+            </div>
+        </section>
+
+    </div>
+
+    
+<!-- 1. MUSIC PLAYER WIDGET (Pojok Kiri Bawah) -->
+<div class="fixed bottom-6 left-6 z-40 brutal-card bg-[#FFDE59] text-[#121212] p-3 rounded-2xl flex flex-col gap-2.5 shadow-[4px_4px_0px_#121212] w-[280px]">
+    
+    <!-- Header & Status -->
+    <div class="flex items-center gap-3">
+        <div class="bg-white p-2 rounded-xl border-2 border-[#121212] text-xl animate-pulse">🎧</div>
+        <div class="flex-1 overflow-hidden">
+            <p id="channelTitle" class="text-[10px] font-black uppercase text-gray-700 tracking-wider">Lo-Fi 1</p>
+            <p id="trackStatus" class="text-xs font-black truncate">Status: Off</p>
+        </div>
+        <button onclick="toggleMusic()" id="musicBtn" class="brutal-btn bg-[#FF5757] text-white w-9 h-9 rounded-xl flex items-center justify-center font-black text-xs cursor-pointer">▶</button>
+    </div>
+
+    <!-- Dropdown Genre/Lagu -->
+    <div class="flex items-center gap-1.5 pt-2 border-t-2 border-[#121212]">
+        <label for="lofiChannelSelect" class="text-[10px] font-black uppercase whitespace-nowrap">Genre:</label>
+        <select id="lofiChannelSelect" onchange="changeChannel(this.value)" class="w-full bg-white border-2 border-[#121212] rounded-lg px-2 py-1 text-[11px] font-bold focus:outline-none cursor-pointer">
+            <option value="audio/lofi1.mp3">Lo-Fi 1</option>
+            <option value="audio/lofi2.mp3">Lo-Fi 2</option>
+        </select>
+    </div>
+
+    <!-- Volume Slider & Mute -->
+    <div class="flex items-center gap-2 bg-white/60 p-1.5 rounded-xl border-2 border-[#121212]">
+        <button onclick="toggleMute()" id="muteBtn" class="text-xs font-black px-1.5 py-0.5 rounded bg-white border border-[#121212] cursor-pointer">🔊</button>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.7" oninput="setVolume(this.value)" class="w-full accent-[#121212] cursor-pointer h-1.5">
+    </div>
+
+    <!-- Tag Audio -->
+    <audio id="lofiAudio" preload="auto" loop>
+        <source id="audioSource" src="audio/lofi1.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<!-- FLOATING SOCIAL MEDIA (Pojok Kanan Bawah - Digeser biar nggak nabrak Scroll Up) -->
+<div class="fixed bottom-6 right-[85px] z-40 flex items-center gap-2.5">
+    
+    <!-- Discord Button -->
+    <button onclick="copyDiscordTag('ZyloLysander')" class="brutal-btn bg-[#5865F2] hover:bg-[#4752C4] text-white font-black px-3.5 py-2 rounded-xl flex items-center gap-2 border-2 border-[#121212] shadow-[3px_3px_0px_#121212] text-xs transition-all cursor-pointer">
+        <span class="text-base">🎮</span>
+        <span class="hidden md:inline">Discord</span>
+    </button>
+
+    <!-- Instagram Button -->
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="brutal-btn bg-[#E1306C] hover:bg-[#C13584] text-white font-black px-3.5 py-2 rounded-xl flex items-center gap-2 border-2 border-[#121212] shadow-[3px_3px_0px_#121212] text-xs transition-all cursor-pointer">
+        <span class="text-base">📸</span>
+        <span class="hidden md:inline">Instagram</span>
+    </a>
+
+</div>
+
+
+
+    <!-- MODAL POP-UP PREVIEW -->
+    <div id="projectModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="brutal-card bg-white text-[#121212] p-6 rounded-2xl max-w-md w-full space-y-4">
+            <h3 id="modalTitle" class="text-xl font-black">Project Title</h3>
+            <p id="modalDesc" class="text-xs text-gray-600 font-semibold leading-relaxed">Project detail description here...</p>
+            <button onclick="closeModal()" class="w-full brutal-btn bg-[#FF5757] text-white py-2 rounded-xl text-xs font-black">Tutup Preview</button>
+        </div>
+    </div>
+<!-- SECTION: INTERACTIVE FEATURES HUB -->
+<section class="py-12 px-4 max-w-6xl mx-auto space-y-8">
+
+    <!-- 1. Sound Effects & Settings -->
+    <div class="brutal-card p-6 bg-[#FFDE59] rounded-xl">
+        <h3 class="text-2xl font-black mb-2 uppercase text-[#121212]">🎮 Sound Effects & Interactive Settings</h3>
+        <p class="font-bold text-sm mb-4 text-[#121212]">Aktifkan efek suara retro ala arcade saat tombol diklik!</p>
+        <button id="soundToggleBtn" onclick="toggleSound()" class="brutal-btn bg-white text-[#121212] px-4 py-2 font-black rounded-lg hover:bg-black hover:text-white transition-all">
+            🔊 Sound FX: <span id="soundStatus">ON</span>
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- 2. Terminal / Live Console -->
+        <div class="brutal-card p-6 bg-[#1E1E1E] text-white rounded-xl font-mono border-2 border-white">
+            <div class="flex items-center gap-2 mb-4 border-b border-gray-700 pb-2">
+                <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                <span class="text-xs text-gray-400 ml-2">rano-terminal ~ v1.0</span>
+            </div>
+            <p class="text-green-400 font-bold mb-2">&gt; Ketik command: <span class="text-gray-400">('help', 'skills', 'clear', 'secret')</span></p>
+            <div id="terminalOutput" class="h-32 overflow-y-auto text-xs space-y-1 mb-3 text-gray-300">
+                <p>Welcome to Rano's Interactive CLI. Type 'help' to start.</p>
+            </div>
+            <div class="flex gap-2">
+                <span class="text-green-400 font-bold">&gt;</span>
+                <input type="text" id="terminalInput" onkeydown="handleTerminal(event)" class="bg-transparent w-full focus:outline-none text-white text-xs border-b border-gray-600" placeholder="Ketik perintah..." />
+            </div>
+        </div>
+
+        <!-- 3. Coffee Clicker Game -->
+        <div class="brutal-card p-6 bg-[#FF5757] text-white rounded-xl flex flex-col justify-between">
+            <div>
+                <h3 class="text-2xl font-black mb-2 uppercase">⚡ Dev Energy Counter</h3>
+                <p class="font-bold text-sm mb-4">Bantu kirimkan Kopi buat Rano!</p>
+            </div>
+            <div class="text-center py-4 bg-white text-[#121212] border-2 border-black font-black text-4xl rounded-lg mb-4 shadow-[4px_4px_0px_#000]">
+                <span id="coffeeCount">0</span> ☕
+            </div>
+            <button onclick="addCoffee()" class="brutal-btn bg-[#00E5FF] text-[#121212] font-black py-3 rounded-lg text-center hover:scale-95 transition-all">
+                Kirim Kopi ☕ (+1)
+            </button>
+        </div>
+
+    </div>
+
+    <!-- 4. Dynamic Time & Status Card -->
+    <div class="brutal-card p-4 bg-[#7000FF] text-white rounded-xl flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            <span class="font-black text-sm uppercase tracking-wide">Status: Ready for Freelance & Project Collaboration</span>
+        </div>
+        <div class="font-mono text-sm font-bold bg-black text-white px-3 py-1 rounded border border-white">
+            📍 Bengkulu | <span id="liveClock">00:00:00 WIB</span>
+        </div>
+    </div>
+
+</section>
+    <!-- BACK TO TOP BUTTON -->
+    <button id="scrollTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-40 hidden brutal-btn bg-[#FFDE59] text-[#121212] p-3 rounded-2xl font-black text-sm shadow-[4px_4px_0px_#121212]">⬆️</button>
+
+    <!-- AOS ANIMATION SCRIPT -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Fungsi untuk memutar efek suara soundboard
+function playSound(type) {
+    playClickSound(); // Efek klik standar bawaan kamu
+    const soundElement = document.getElementById('sfx-' + type);
+    
+    if (soundElement) {
+        soundElement.currentTime = 0; // Biar bisa dipencet/di-spam cepat
+        soundElement.play().catch(err => {
+            console.log("Gagal memutar audio:", err);
+        });
+    }
+}
+        AOS.init({ duration: 800, once: false, offset: 100 });
+
+        // Ganti fungsi playClickSound lama kamu dengan yang ini:
+function playClickSound() {
+    // Jika sound sedang OFF, batalkan/jangan bunyikan suara
+    if (typeof soundEnabled !== 'undefined' && !soundEnabled) return;
+
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(400, ctx.currentTime);
+        gain.gain.setValueAtTime(0.05, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.00001, ctx.currentTime + 0.08);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.08);
+    } catch(e) {}
+}
+
+        // Music Player Toggle
+function toggleMusic() {
+    playClickSound();
+    const audio = document.getElementById('lofiAudio');
+    const btn = document.getElementById('musicBtn');
+    const status = document.getElementById('trackStatus');
+    const genreSelect = document.querySelector('select'); // Mengambil dropdown genre otomatis
+
+    if (!audio) {
+        console.warn("Elemen lofiAudio belum ada di HTML!");
+        return;
+    }
+
+    // Kalau dropdown genre ada, sesuaikan source audio dengan pilihan (lofi1.mp3 / lofi2.mp3)
+    if (genreSelect && genreSelect.value) {
+        audio.src = genreSelect.value;
+    }
+
+    if (audio.paused) {
+        audio.play().then(() => {
+            if (btn) {
+                btn.innerText = '⏹️';
+                btn.classList.remove('bg-[#FF5757]');
+                btn.classList.add('bg-[#7CFF6B]', 'text-[#121212]');
+            }
+            if (status) status.innerText = 'Playing... 🎵';
+        }).catch(err => {
+            console.log("Gagal memutar audio:", err);
+        });
+    } else {
+        audio.pause();
+        if (btn) {
+            btn.innerText = '▶️';
+            btn.classList.remove('bg-[#7CFF6B]', 'text-[#121212]');
+            btn.classList.add('bg-[#FF5757]', 'text-white');
+        }
+        if (status) status.innerText = 'Status: Off';
+    }
+}
+        // Live Stream Status Toggle
+        const statuses = [
+            { text: "LIVE STREAMING NOW", bg: "#7CFF6B" },
+            { text: "GAMING NOW (OFFLINE)", bg: "#FFDE59" },
+            { text: "CODING MODE 👨‍💻", bg: "#38B6FF" }
+        ];
+        let currentStatusIdx = 0;
+        function toggleStatus() {
+            playClickSound();
+            currentStatusIdx = (currentStatusIdx + 1) % statuses.length;
+            document.getElementById('statusBtn').style.backgroundColor = statuses[currentStatusIdx].bg;
+            document.getElementById('statusText').innerText = statuses[currentStatusIdx].text;
+        }
+
+        // Theme Toggle
+function toggleTheme() {
+    playClickSound();
+    document.body.classList.toggle('dark-mode');
+    
+    // Ganti icon tombol jika tombolnya punya id="themeIcon"
+    const themeIcon = document.getElementById('themeIcon');
+    if (themeIcon) {
+        if (document.body.classList.contains('dark-mode')) {
+            themeIcon.textContent = '☀️';
+        } else {
+            themeIcon.textContent = '🌙';
+        }
+    }
+}
+
+        // Skill Filter
+        function filterSkills(category) {
+            playClickSound();
+            const badges = document.querySelectorAll('.skill-badge');
+            badges.forEach(badge => {
+                if (category === 'all' || badge.classList.contains(category)) {
+                    badge.style.display = 'inline-block';
+                } else {
+                    badge.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Control
+        function openModal(title, desc) {
+            playClickSound();
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('projectModal').classList.remove('hidden');
+        }
+        function closeModal() {
+            playClickSound();
+            document.getElementById('projectModal').classList.add('hidden');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(id) {
+            playClickSound();
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            ans.classList.toggle('hidden');
+            icon.innerText = ans.classList.contains('hidden') ? '+' : '−';
+        }
+
+        // Copy Clipboard
+        function copyToClipboard(text, label) {
+            playClickSound();
+            navigator.clipboard.writeText(text);
+            alert(`✅ ${label} berhasil disalin ke clipboard!`);
+        }
+
+        // Contact Form
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            playClickSound();
+            alert('🎉 Pesan kamu berhasil terkirim!');
+            document.getElementById('contactForm').reset();
+        }
+
+        // Back to Top Indicator
+        window.onscroll = function() {
+            const btn = document.getElementById('scrollTopBtn');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.classList.remove('hidden');
+            } else {
+                btn.classList.add('hidden');
+            }
+        };
+        function scrollToTop() {
+            playClickSound();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        // Fungsi Pindah Channel Lofi
+function changeChannel(newStreamUrl) {
+    playClickSound();
+    const audio = document.getElementById('lofiAudio');
+    const source = document.getElementById('audioSource');
+    const select = document.getElementById('lofiChannelSelect');
+    const channelTitle = document.getElementById('channelTitle');
+    const isPlaying = !audio.paused;
+
+    // Update judul channel berdasarkan pilihan dropdown
+    channelTitle.innerText = select.options[select.selectedIndex].text;
+
+    // Ganti URL audio stream
+    source.src = newStreamUrl;
+    audio.load();
+
+    // Kalau audio sedang jalan saat channel diganti, langsung putar lagu channel baru
+    if (isPlaying) {
+        audio.play();
+    }
+}
+
+// Music Player Toggle
+function toggleMusic() {
+    playClickSound();
+    const audio = document.getElementById('lofiAudio');
+    const btn = document.getElementById('musicBtn');
+    const status = document.getElementById('trackStatus');
+
+    if (audio.paused) {
+        audio.play();
+        btn.innerText = '⏸';
+        btn.classList.remove('bg-[#FF5757]');
+        btn.classList.add('bg-[#7CFF6B]', 'text-[#121212]');
+        status.innerText = 'Playing... 🎵';
+    } else {
+        audio.pause();
+        btn.innerText = '▶';
+        btn.classList.remove('bg-[#7CFF6B]', 'text-[#121212]');
+        btn.classList.add('bg-[#FF5757]', 'text-white');
+        status.innerText = 'Status: Off';
+    }
+}function setVolume(val) {
+    const audio = document.getElementById('lofiAudio');
+    if (audio) audio.volume = val;
+}
+
+function toggleMute() {
+    if (typeof playClickSound === 'function') playClickSound();
+    const audio = document.getElementById('lofiAudio');
+    const muteBtn = document.getElementById('muteBtn');
+    if (audio) {
+        audio.muted = !audio.muted;
+        muteBtn.innerText = audio.muted ? '🔇' : '🔊';
+    }
+}
+
+function copyDiscordTag(tag) {
+    if (typeof playClickSound === 'function') playClickSound();
+    navigator.clipboard.writeText(tag).then(() => {
+        alert('Username Discord berhasil di-copy: ' + tag);
+    });
+}/* ==============================================
+       FITUR INTERAKTIF (Sound, Terminal, Coffee, Clock)
+    ============================================== */
+    let soundEnabled = true;
+
+    function toggleSound() {
+        soundEnabled = !soundEnabled;
+        const btn = document.getElementById('soundStatus');
+        if(btn) btn.innerText = soundEnabled ? 'ON' : 'OFF';
+        if (soundEnabled && typeof playClickSound === 'function') playClickSound();
+    }
+
+    function handleTerminal(e) {
+        if (e.key === 'Enter') {
+            const input = document.getElementById('terminalInput');
+            const cmd = input.value.trim().toLowerCase();
+            const output = document.getElementById('terminalOutput');
+            
+            if (typeof playClickSound === 'function') playClickSound();
+
+            let res = '';
+            if (cmd === 'help') {
+                res = "Perintah: <br>- 'skills' : Lihat tech stack<br>- 'clear' : Bersihkan layar<br>- 'secret': Rahasia developer<br>- 'github': Buka repositori";
+            } else if (cmd === 'skills') {
+                res = "Tech Stack: HTML, CSS, JavaScript, Tailwind CSS, OBS Studio, Premiere, Figma.";
+            } else if (cmd === 'secret') {
+                res = "🎉 Easter Egg Unlocked! Kamu nemu pesan rahasia Rano!";
+            } else if (cmd === 'clear') {
+                output.innerHTML = '';
+                input.value = '';
+                return;
+            } else if (cmd === 'github') {
+                res = "Membuka GitHub...";
+                window.open('https://github.com', '_blank');
+            } else {
+                res = `Command '${cmd}' tidak dikenali. Ketik 'help'.`;
+            }
+
+            output.innerHTML += `<p class="text-yellow-400">&gt; ${cmd}</p><p class="mb-1">${res}</p>`;
+            output.scrollTop = output.scrollHeight;
+            input.value = '';
+        }
+    }
+
+    let coffee = parseInt(localStorage.getItem('coffee_count') || '0');
+    const coffeeElem = document.getElementById('coffeeCount');
+    if(coffeeElem) coffeeElem.innerText = coffee;
+
+    function addCoffee() {
+        coffee++;
+        localStorage.setItem('coffee_count', coffee);
+        if(coffeeElem) coffeeElem.innerText = coffee;
+        if (typeof playClickSound === 'function') playClickSound();
+    }
+
+    function updateClock() {
+        const now = new Date();
+        const options = { timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const clockElem = document.getElementById('liveClock');
+        if(clockElem) clockElem.innerText = now.toLocaleTimeString('id-ID', options) + ' WIB';
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+    /* ==============================================
+       FITUR TAMBAHAN (Visitor Count, Konami Code, Chat)
+    ============================================== */
+    let fakeVisitors = Math.floor(Math.random() * 15) + 8;
+    const visitorElem = document.getElementById('visitorCount');
+    if(visitorElem) visitorElem.innerText = fakeVisitors;
+    
+    setInterval(() => {
+        fakeVisitors += Math.floor(Math.random() * 3) - 1;
+        if(fakeVisitors < 5) fakeVisitors = 5;
+        if(visitorElem) visitorElem.innerText = fakeVisitors;
+    }, 8000);
+
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === konamiCode[konamiIndex].toLowerCase()) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                activateMatrixMode();
+                konamiIndex = 0;
+            }
+        } else {
+            konamiIndex = 0;
+        }
+    });
+
+    function activateMatrixMode() {
+        if (typeof playClickSound === 'function') playClickSound();
+        alert('🎉 KONAMI CODE DIAKTIFKAN! Selamat datang di Mode Hacker Rano!');
+        document.body.style.backgroundColor = '#000000';
+        document.body.style.color = '#00FF66';
+        const cards = document.querySelectorAll('.brutal-card');
+        cards.forEach(card => {
+            card.style.borderColor = '#00FF66';
+            card.style.boxShadow = '4px 4px 0px #00FF66';
+        });
+    }
+
+    function toggleQuickChat() {
+        if (typeof playClickSound === 'function') playClickSound();
+        const modal = document.getElementById('quickChatModal');
+        if (modal) {
+            modal.classList.toggle('hidden');
+        }
+    }
+
+    function sendWhatsApp() {
+        const name = document.getElementById('chatName').value.trim();
+        const msg = document.getElementById('chatMessage').value.trim();
+
+        if (!name || !msg) {
+            alert('Mohon isi nama dan pesan terlebih dahulu!');
+            return;
+        }
+
+        const phoneNumber = '6283178983601'; // Ganti nomor WA jika perlu
+        const text = encodeURIComponent(`Halo Rano, saya ${name}. ${msg}`);
+        window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+    }
+    </script>
+<!-- SECTION: EXTRA ADVANCED FEATURES -->
+<section class="py-8 px-4 max-w-6xl mx-auto space-y-6 font-mono">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Visitors Hype Counter -->
+        <div class="brutal-card p-5 bg-[#00E5FF] text-[#121212] rounded-xl flex items-center justify-between shadow-[4px_4px_0px_#000]">
+            <div>
+                <h4 class="font-black text-lg uppercase">🌐 Live Traffic Stats</h4>
+                <p class="text-xs font-bold text-gray-800">Pengunjung online saat ini:</p>
+            </div>
+            <div class="bg-white px-4 py-2 border-2 border-black rounded-lg font-black text-2xl shadow-[2px_2px_0px_#000]">
+                <span id="visitorCount">14</span> 👤
+            </div>
+        </div>
+
+        <!-- Secret Easter Egg Hint -->
+        <div class="brutal-card p-5 bg-[#FF007F] text-white rounded-xl flex flex-col justify-between shadow-[4px_4px_0px_#000]">
+            <div>
+                <h4 class="font-black text-lg uppercase">🕹️ Developer Easter Egg</h4>
+                <p class="text-xs font-bold">Coba ketik kode legendaris Konami di keyboardmu:</p>
+            </div>
+            <div class="bg-black text-green-400 px-3 py-1 text-xs border border-white rounded mt-2 inline-block">
+                ⬆️ ⬆️ ⬇️ ⬇️ ⬅️ ➡️ ⬅️ ➡️ B A
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Tombol Tanya Rano? dinaikin lagi biar bebas dari scroll up -->
+<div style="position: fixed !important; bottom: 130px !important; right: 20px !important; z-index: 2147483647 !important;">
+    <button onclick="toggleQuickChat()" style="background-color: #FFDE59; color: #121212; font-weight: 900; padding: 10px 16px; border-radius: 12px; border: 3px solid #000; box-shadow: 3px 3px 0px #000; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+        💬 Tanya Rano?
+    </button>
+</div>
+<!-- Modal Quick Chat -->
+<div id="quickChatModal" class="hidden" style="position: fixed !important; bottom: 85px !important; right: 20px !important; z-index: 2147483647 !important; width: 300px; background: white; border: 4px solid #000; border-radius: 16px; box-shadow: 6px 6px 0px #000; padding: 16px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 8px; margin-bottom: 12px;">
+        <h3 style="font-weight: 900; font-size: 16px; color: #000; margin: 0;">🚀 Kirim Pesan Cepat</h3>
+        <button onclick="toggleQuickChat()" style="font-weight: 900; font-size: 18px; background: none; border: none; cursor: pointer; color: #000;">×</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+        <input type="text" id="chatName" placeholder="Nama kamu..." style="width: 100%; padding: 8px; border: 2px solid #000; border-radius: 6px; font-weight: bold; font-size: 14px; box-sizing: border-box; background: white; color: #000;" />
+        <textarea id="chatMessage" placeholder="Tulis pesan..." style="width: 100%; padding: 8px; border: 2px solid #000; border-radius: 6px; font-weight: bold; font-size: 14px; height: 80px; resize: none; box-sizing: border-box; background: white; color: #000;"></textarea>
+        <button onclick="sendWhatsApp()" style="width: 100%; background: #00E5FF; color: #000; font-weight: 900; padding: 10px; border-radius: 8px; border: 2px solid #000; box-shadow: 2px 2px 0px #000; cursor: pointer; text-align: center;">
+            Kirim via WhatsApp 📲
+        </button>
+    </div>
+</div>
+
+
+</div>
+</body>
+<!-- MINI SOUNDBOARD DI POJOK KIRI BAWAH (PAS DI ATAS LO-FI) -->
+<div class="fixed bottom-56 left-6 z-50">
+    <div class="brutalist-card p-3 bg-[#FFDE59] border-4 border-black rounded-xl shadow-[4px_4px_0px_#000] w-64">
+        <div class="font-black text-xs uppercase mb-2 text-black flex items-center gap-1">
+            🔊 STREAMER SOUNDBOARD
+        </div>
+        <div class="grid grid-cols-3 gap-1.5">
+            <button onclick="playSound('diam')" class="bg-[#FF5757] hover:bg-[#ff3b3b] text-white font-extrabold text-[10px] py-1.5 px-1 rounded-md border-2 border-black shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                🤫 Diam
+            </button>
+            <button onclick="playSound('gerinda')" class="bg-[#7CFF6B] hover:bg-[#68ef55] text-black font-extrabold text-[10px] py-1.5 px-1 rounded-md border-2 border-black shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                ⚙️ Gerinda
+            </button>
+            <button onclick="playSound('hey')" class="bg-[#00F0FF] hover:bg-[#00d8e6] text-black font-extrabold text-[10px] py-1.5 px-1 rounded-md border-2 border-black shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                👋 Hey
+            </button>
+            <button onclick="playSound('kaget')" class="bg-[#FF90E8] hover:bg-[#ff75df] text-black font-extrabold text-[10px] py-1.5 px-1 rounded-md border-2 border-black shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                😱 Kaget
+            </button>
+            <button onclick="playSound('lawan')" class="bg-[#FF7000] hover:bg-[#e06300] text-white font-extrabold text-[10px] py-1.5 px-1 rounded-md border-2 border-black shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                ⚔️ Lawan
+            </button>
+            <button onclick="playSound('mbg')" class="bg-[#A370F0] hover:bg-[#925ce4] text-white font-extrabold text-[10px] py-1.5 px-1 rounded-md border-2 border-black shadow-[2px_2px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                🔥 MBG
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- HIDDEN AUDIO ELEMENTS (Soundboard) -->
+<audio id="sfx-diam" src="diam.mp3.mp3" preload="auto"></audio>
+<audio id="sfx-gerinda" src="gerinda.mp3.mp3" preload="auto"></audio>
+<audio id="sfx-hey" src="hey.mp3.mp3" preload="auto"></audio>
+<audio id="sfx-kaget" src="kaget.mp3.mp3" preload="auto"></audio>
+<audio id="sfx-lawan" src="lawan.mp3.mp3" preload="auto"></audio>
+<audio id="sfx-mbg" src="mbg.mp3.mp3" preload="auto"></audio>
+</html>
