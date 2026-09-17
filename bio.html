@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <title>ZYLO // BIO</title>
+  <style>
+    :root { --bg:#0d0d0d; --panel:#151515; --ink:#f7f7f2; --neon:#00ff66; --purple:#a855f7; --muted:#a5aaad; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px 16px; color:var(--ink); background-color:var(--bg); background-image:linear-gradient(rgba(0,255,102,.09) 1px, transparent 1px),linear-gradient(90deg, rgba(0,255,102,.09) 1px, transparent 1px); background-size:28px 28px; font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace; }
+    .shell { width:min(100%,580px); position:relative; }
+    .topline { display:flex; justify-content:space-between; gap:12px; align-items:center; margin:0 0 10px; font-size:11px; font-weight:900; letter-spacing:.12em; color:var(--neon); }
+    .card { border:3px solid var(--ink); background:var(--panel); box-shadow:7px 7px 0 var(--neon); padding:clamp(20px,5vw,34px); }
+    .profile { display:flex; gap:18px; align-items:center; border-bottom:2px solid var(--ink); padding-bottom:22px; }
+    .avatar { width:82px; aspect-ratio:1; flex:none; display:grid; place-items:center; border:3px solid var(--neon); border-radius:50%; background:linear-gradient(135deg,var(--purple),#271145); box-shadow:4px 4px 0 var(--ink); font-weight:900; font-size:24px; position:relative; }
+    .avatar::after { content:""; position:absolute; width:15px; height:15px; right:-2px; bottom:3px; border:2px solid var(--ink); border-radius:50%; background:var(--neon); animation:pulse 1s steps(2,end) infinite; }
+    h1 { margin:0; font-size:clamp(30px,9vw,48px); line-height:.88; letter-spacing:-.1em; text-transform:uppercase; text-shadow:3px 3px 0 var(--purple); }
+    .handle { margin:9px 0 0; color:var(--neon); font-size:12px; font-weight:900; letter-spacing:.08em; }
+    .bio { font-size:14px; line-height:1.65; margin:22px 0; color:#e2e5e1; }
+    .status { border:2px solid var(--neon); background:#0b2214; padding:12px 13px; display:flex; align-items:center; gap:10px; color:var(--neon); font-weight:800; font-size:12px; }
+    .led { height:9px; width:9px; border-radius:50%; background:var(--neon); box-shadow:0 0 12px var(--neon); animation:pulse 1s steps(2,end) infinite; }
+    .links { display:grid; gap:11px; margin:22px 0; }
+    .link { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:52px; padding:13px 14px; border:2px solid var(--ink); color:var(--ink); background:#101010; text-decoration:none; font-size:13px; font-weight:900; box-shadow:4px 4px 0 var(--ink); transition:transform .14s ease,box-shadow .14s ease,background .14s ease,color .14s ease; }
+    .link:hover,.link:focus-visible { transform:translate(-3px,-3px); background:var(--neon); color:#07140c; box-shadow:7px 7px 0 var(--purple); outline:none; }
+    .link:active { transform:translate(2px,2px); box-shadow:1px 1px 0 var(--purple); }
+    .icon { width:24px; text-align:center; font-size:18px; }.go { font-size:19px; }
+    .badges { display:flex; flex-wrap:wrap; gap:8px; padding-top:20px; border-top:2px dashed #606565; }
+    .badge { padding:7px 9px; border:2px solid var(--ink); color:#101010; background:var(--neon); font-size:10px; font-weight:900; letter-spacing:.05em; box-shadow:2px 2px 0 var(--purple); }
+    .badge:nth-child(even){ background:var(--purple); color:white; }
+    .foot { margin:16px 0 0; color:var(--muted); text-align:center; font-size:10px; letter-spacing:.08em; }
+    @keyframes pulse { 50% { opacity:.28; } }
+    @media (max-width:390px) { body{padding:15px 11px}.card{box-shadow:5px 5px 0 var(--neon)}.profile{gap:13px}.avatar{width:68px}.bio{font-size:13px}.link{font-size:12px} }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topline"><span>SYS://ZYLO_PROFILE</span><span>ONLINE_01</span></div>
+    <article class="card">
+      <header class="profile">
+        <div class="avatar" aria-label="Avatar Zylo">Z</div>
+        <div><h1>ZYLO.exe</h1><p class="handle">@zylo // bengkulu.id</p></div>
+      </header>
+      <p class="bio">Building apps by day, grinding games by night.<br>Living in Bengkulu.</p>
+      <section class="status" aria-label="Current vibe"><span class="led"></span><span id="vibe">LIVE / CODING — listening to Phonk / Lo-fi</span></section>
+      <nav class="links" aria-label="Social links">
+        <a class="link" href="https://discord.com/app" target="_blank" rel="noopener noreferrer"><span><span class="icon">◉</span> DISCORD <small>// CONNECT</small></span><span class="go">↗</span></a>
+        <a class="link" href="https://www.roblox.com" target="_blank" rel="noopener noreferrer"><span><span class="icon">▣</span> ROBLOX <small>// GAMING</small></span><span class="go">↗</span></a>
+        <a class="link" href="https://github.com/zyloid73" target="_blank" rel="noopener noreferrer"><span><span class="icon">⌘</span> GITHUB <small>// PORTFOLIO</small></span><span class="go">↗</span></a>
+        <a class="link" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><span><span class="icon">▶</span> YOUTUBE <small>// STREAMS</small></span><span class="go">↗</span></a>
+      </nav>
+      <section class="badges" aria-label="Interests"><span class="badge">APP DEV</span><span class="badge">BLENDER 3D</span><span class="badge">NEOBRUTALISM</span><span class="badge">GAMER</span></section>
+    </article>
+    <p class="foot">[ SELECT A LINK TO CONNECT ]</p>
+  </main>
+  <script>
+    const vibes=['LIVE / CODING — listening to Phonk / Lo-fi','LIVE / GAMING — playing Roblox','LIVE / BUILDING — deploying something loud'];
+    let i=0; setInterval(()=>{ i=(i+1)%vibes.length; document.querySelector('#vibe').textContent=vibes[i]; },4000);
+  </script>
+</body>
+</html>
