@@ -6,12 +6,12 @@ import { Plus } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const components = [
-  { id: "monitor", name: "MONITOR", specification: "LG · 180HZ", x: 43, y: 38, side: "left" },
-  { id: "processor", name: "PROCESSOR", specification: "RYZEN 5 7500F", x: 77, y: 48, side: "right" },
-  { id: "graphics", name: "GRAPHICS", specification: "RTX 4060", x: 80, y: 65, side: "right" },
+  { id: "monitor", name: "MONITOR", specification: "LG · 240HZ", x: 43, y: 38, side: "left" },
+  { id: "processor", name: "PROCESSOR", specification: "Ryzen 7 7700X", x: 77, y: 48, side: "right" },
+  { id: "graphics", name: "GRAPHICS", specification: "RTX 4070 Ti SUPER", x: 80, y: 65, side: "right" },
   { id: "memory", name: "MEMORY", specification: "32GB DDR5", x: 86, y: 53, side: "left" },
-  { id: "audio", name: "HEADPHONES", specification: "MY DO NOT DISTURB SIGN", x: 12, y: 66, side: "right" },
-  { id: "keyboard", name: "KEYBOARD", specification: "WHERE THE IDEAS START", x: 49, y: 83, side: "right" },
+  { id: "audio", name: "HEADPHONES", specification: "LOGITECH G735", x: 12, y: 66, side: "right" },
+  { id: "keyboard", name: "KEYBOARD", specification: "NOIR TIMELESS 82 V2", x: 49, y: 83, side: "right" },
 ]
 
 export function Setup() {
