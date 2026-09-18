@@ -21,8 +21,15 @@ export function Setup() {
       <div className="section-topline mono"><span className="chapter-label"><span className="tiny-square" />05 / THE SETUP</span><span className="muted">MY LITTLE COMMAND CENTER.</span></div>
       <div className="setup-heading"><h2 id="setup-title" className="display">BEHIND THE<br /><span className="outline-text">SCREEN.</span></h2><p>Nothing over the top.<br />Everything I need.</p></div>
       <div className="setup-stage">
-        <div className="setup-image"><Image src="/images/setup.webp" alt="An illustrated dark desk setup with a blue-lit monitor, black PC, mechanical keyboard, mouse, and headphones." fill sizes="(max-width: 899px) 100vw, 90vw" /></div>
-        <div className="setup-vignette" aria-hidden="true" />
+        <div className="setup-image">
+  <Image
+    src="/images/setup.webp"
+    alt="An illustrated dark desk setup with a blue-lit monitor, black PC, mechanical keyboard, mouse, and headphones."
+    fill
+    sizes="(max-width: 899px) 100vw, 90vw"
+  />
+</div>
+<div className="setup-vignette" aria-hidden="true" />
         {components.map((component) => (
           <div className={cn("setup-hotspot", `annotation-${component.side}`, active === component.id && "is-active")} style={{ left: `${component.x}%`, top: `${component.y}%` }} key={component.id}>
             <button type="button" className="hotspot-button" aria-label={`${component.name}: ${component.specification}`} aria-expanded={active === component.id} aria-controls={`annotation-${component.id}`} onMouseEnter={() => setActive(component.id)} onFocus={() => setActive(component.id)} onClick={() => setActive(component.id)} onKeyDown={(event) => { if (event.key === "Escape") setActive(null) }}><Plus size={14} strokeWidth={1.2} aria-hidden="true" /></button>
@@ -31,7 +38,7 @@ export function Setup() {
         ))}
         <span className="setup-image-caption mono">AFTER HOURS / BEFORE ANOTHER IDEA</span>
       </div>
-      <div className="setup-caption mono"><span><span className="tiny-square" />HOVER OR TAP TO EXPLORE</span><span className="muted">ARTIST&apos;S IMPRESSION · PERSONAL PHOTO GOES HERE</span></div>
+      <div className="setup-caption mono"><span><span className="tiny-square" />MY DESK · WHERE MOST OF IT HAPPENS</span><span className="muted">BUILT FOR LATE NIGHTS & RANDOM IDEAS</span></div>
     </section>
   )
 }

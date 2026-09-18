@@ -12,11 +12,41 @@ import { cn } from "@/lib/utils"
  gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 const worlds = [
-  { title: "CODE", label: "A LITTLE OBSESSION", description: "Building websites and experimenting with ideas.", detail: "THE GOOD KIND OF TRIAL & ERROR", image: "/images/blue-folds.webp" },
-  { title: "GAME", label: "ONE MORE ROUND", description: "Valorant · Roblox · GTA V", detail: "WIN OR LOSE. PROBABLY ONE MORE.", image: "/images/game.webp" },
-  { title: "STREAM", label: "BEHIND THE SCENES", description: "OBS · visuals · audio", detail: "GETTING THE LITTLE DETAILS RIGHT.", image: "/images/setup.webp" },
-  { title: "MUSIC", label: "ALWAYS IN THE BACKGROUND", description: "Usually playing in the background.", detail: "A SOUNDTRACK FOR EVERYTHING.", image: "/images/music.webp" },
-  { title: "CREATE", label: "NO BRIEF NECESSARY", description: "Designing and experimenting.", detail: "SOME IDEAS JUST NEED TO EXIST.", image: "/images/cinema.webp" },
+  {
+    title: "CODE",
+    label: "WHERE I USUALLY START",
+    description: "Building websites, trying things, and seeing what works.",
+    detail: "SOMEHOW IT ALWAYS GETS MORE COMPLICATED.",
+    image: "/images/blue-folds.webp",
+  },
+  {
+    title: "GAME",
+    label: "ONE MORE ROUND",
+    description: "Valorant · Roblox · GTA V",
+    detail: "I SAID ONE MORE. I LIED.",
+    image: "/images/game.webp",
+  },
+  {
+    title: "STREAM",
+    label: "TRYING TO MAKE IT LOOK GOOD",
+    description: "OBS · visuals · audio",
+    detail: "STILL TWEAKING SOMETHING.",
+    image: "/images/setup.webp",
+  },
+  {
+    title: "MUSIC",
+    label: "ALMOST ALWAYS PLAYING",
+    description: "Whatever fits the mood.",
+    detail: "THERE'S USUALLY SOMETHING ON.",
+    image: "/images/music.webp",
+  },
+  {
+    title: "CREATE",
+    label: "JUST MAKING STUFF",
+    description: "Designing, editing, and messing around with ideas.",
+    detail: "SOME OF THEM ACTUALLY WORK.",
+    image: "/images/cinema.webp",
+  },
 ]
 
 export function World() {
